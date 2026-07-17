@@ -1,7 +1,5 @@
 from src.etl.loader import ExcelLoader
 from src.etl.data_cleaner import DataCleaner
-from src.etl.validation_pipeline import ValidationPipeline
-
 
 loader = ExcelLoader()
 
@@ -11,8 +9,4 @@ cleaner = DataCleaner()
 
 cleaned = cleaner.clean_all(datasets)
 
-validator = ValidationPipeline()
-
-validated = validator.validate_all(cleaned)
-
-print("\nValidation Pipeline Completed Successfully.")
+print("\nCleaning completed successfully.")

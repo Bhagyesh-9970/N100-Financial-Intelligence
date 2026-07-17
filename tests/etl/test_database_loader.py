@@ -1,7 +1,7 @@
 from src.etl.loader import ExcelLoader
 from src.etl.data_cleaner import DataCleaner
 from src.etl.validation_pipeline import ValidationPipeline
-
+from src.etl.database_loader import DatabaseLoader
 
 loader = ExcelLoader()
 
@@ -15,4 +15,10 @@ validator = ValidationPipeline()
 
 validated = validator.validate_all(cleaned)
 
-print("\nValidation Pipeline Completed Successfully.")
+database = DatabaseLoader()
+
+database.load_all(validated)
+
+database.export_audit()
+
+print("\nDatabase Pipeline Finished Successfully.")

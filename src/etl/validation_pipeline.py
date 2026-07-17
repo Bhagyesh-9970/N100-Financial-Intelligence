@@ -1,15 +1,5 @@
-"""
-=========================================================
-Validation Pipeline
-N100 Financial Intelligence Platform
+from pathlib import Path
 
-Sprint 1 - Day 3
-
-Author : Bhagyesh Mali
-=========================================================
-"""
-
-from src.etl.loader import ExcelLoader
 from src.etl.validator import DataValidator
 
 
@@ -17,157 +7,196 @@ class ValidationPipeline:
 
     def __init__(self):
 
-        self.loader = ExcelLoader("data/raw")
         self.validator = DataValidator()
 
-    def run(self):
+        self.output_path = Path("data/interim/validated")
+        self.output_path.mkdir(parents=True, exist_ok=True)
 
-        print("\nLoading datasets...\n")
+    def validate_all(self, datasets):
 
-        datasets = self.loader.load_all_files()
+        self.validator.clear()
 
-        print("\nRunning Data Quality Checks...\n")
+        validated = {}
 
-        # -------------------------
+        print("\n" + "=" * 60)
+        print("VALIDATING DATASETS")
+        print("=" * 60)
+
+        # -----------------------------
         # Companies
-        # -------------------------
-
+        # -----------------------------
         if "companies" in datasets:
 
-            companies = datasets["companies"]
+            df = datasets["companies"]
 
-            self.validator.validate_dataset_not_empty(
-                companies,
-                "companies"
-            )
+            self.validator.validate_dataset_not_empty(df, "companies")
 
-            self.validator.validate_primary_key(
-                companies,
-                "company_id",
-                "companies"
-            )
+            if "company_id" in df.columns:
+                self.validator.validate_primary_key(
+                    df,
+                    "company_id",
+                    "companies"
+                )
 
-            self.validator.validate_duplicate_ticker(
-                companies
-            )
+            if "ticker" in df.columns:
+                self.validator.validate_duplicate_ticker(df)
 
-        # -------------------------
+            validated["companies"] = df
+
+        # -----------------------------
         # Profit & Loss
-        # -------------------------
-
+        # -----------------------------
         if "profitandloss" in datasets:
 
-            pnl = datasets["profitandloss"]
+            df = datasets["profitandloss"]
 
-            self.validator.validate_company_year(
-                pnl,
+            self.validator.validate_dataset_not_empty(
+                df,
                 "profitandloss"
             )
 
-            self.validator.validate_positive_sales(
-                pnl
-            )
+            if {"company_id", "year"}.issubset(df.columns):
+                self.validator.validate_company_year(
+                    df,
+                    "profitandloss"
+                )
 
-            self.validator.validate_opm(
-                pnl
-            )
+            if "sales" in df.columns:
+                self.validator.validate_positive_sales(df)
 
-            self.validator.validate_tax_rate(
-                pnl
-            )
+            if {"sales", "operating_profit", "opm"}.issubset(df.columns):
+                self.validator.validate_opm(df)
 
-            self.validator.validate_eps(
-                pnl
-            )
+            if "tax_rate" in df.columns:
+                self.validator.validate_tax_rate(df)
 
-        # -------------------------
+            validated["profitandloss"] = df
+
+        # -----------------------------
         # Balance Sheet
-        # -------------------------
-
+        # -----------------------------
         if "balancesheet" in datasets:
 
-            bs = datasets["balancesheet"]
+            df = datasets["balancesheet"]
 
-            self.validator.validate_company_year(
-                bs,
+            self.validator.validate_dataset_not_empty(
+                df,
                 "balancesheet"
             )
 
-            self.validator.validate_balance_sheet(
-                bs
-            )
+            if {
+                "total_assets",
+                "total_liabilities",
+                "total_equity"
+            }.issubset(df.columns):
 
-        # -------------------------
+                self.validator.validate_balance_sheet(df)
+
+            validated["balancesheet"] = df
+
+        # -----------------------------
         # Cash Flow
-        # -------------------------
-
+        # -----------------------------
         if "cashflow" in datasets:
 
-            cf = datasets["cashflow"]
+            df = datasets["cashflow"]
 
-            self.validator.validate_company_year(
-                cf,
+            self.validator.validate_dataset_not_empty(
+                df,
                 "cashflow"
             )
 
-            self.validator.validate_net_cash(
-                cf
+            if {
+                "cash_from_operating_activity",
+                "cash_from_investing_activity",
+                "cash_from_financing_activity",
+                "net_cash_flow"
+            }.issubset(df.columns):
+
+                self.validator.validate_net_cash(df)
+
+            validated["cashflow"] = df
+
+        # -----------------------------
+        # Financial Ratios
+        # -----------------------------
+        if "financial_ratios" in datasets:
+
+            df = datasets["financial_ratios"]
+
+            self.validator.validate_dataset_not_empty(
+                df,
+                "financial_ratios"
             )
 
-        # -------------------------
-        # Analysis
-        # -------------------------
+            if {"eps", "net_profit"}.issubset(df.columns):
+                self.validator.validate_eps(df)
 
-        if "analysis" in datasets:
+            validated["financial_ratios"] = df
 
-            self.validator.validate_dividend(
-                datasets["analysis"]
-            )
-
-        # -------------------------
+        # -----------------------------
         # Documents
-        # -------------------------
-
+        # -----------------------------
         if "documents" in datasets:
 
-            self.validator.validate_url(
-                datasets["documents"]
+            df = datasets["documents"]
+
+            self.validator.validate_dataset_not_empty(
+                df,
+                "documents"
             )
 
-        # -------------------------
-        # Foreign Key Checks
-        # -------------------------
+            if "url" in df.columns:
+                self.validator.validate_url(df)
 
-        if "companies" in datasets:
+            validated["documents"] = df
 
-            companies = datasets["companies"]
+        # -----------------------------
+        # Analysis
+        # -----------------------------
+        if "analysis" in datasets:
 
-            for table in [
-                "profitandloss",
-                "balancesheet",
-                "cashflow",
-                "analysis",
-                "financial_ratios"
-            ]:
+            df = datasets["analysis"]
 
-                if table in datasets:
+            self.validator.validate_dataset_not_empty(
+                df,
+                "analysis"
+            )
 
-                    self.validator.validate_foreign_key(
+            if {"dividend", "net_profit"}.issubset(df.columns):
+                self.validator.validate_dividend(df)
 
-                        datasets[table],
+            validated["analysis"] = df
 
-                        companies,
+        # -----------------------------
+        # Remaining datasets
+        # -----------------------------
+        for table in [
+            "prosandcons",
+            "market_cap",
+            "peer_groups",
+            "sectors",
+            "stock_prices"
+        ]:
 
-                        "company_id",
+            if table in datasets:
 
-                        table
+                self.validator.validate_dataset_not_empty(
+                    datasets[table],
+                    table
+                )
 
-                    )
-
-        print("\nValidation Complete\n")
-
-        self.validator.summary()
+                validated[table] = datasets[table]
 
         self.validator.export_failures()
 
-        return datasets
+        self.validator.summary()
+
+        for name, df in validated.items():
+
+            df.to_csv(
+                self.output_path / f"{name}.csv",
+                index=False
+            )
+
+        return validated

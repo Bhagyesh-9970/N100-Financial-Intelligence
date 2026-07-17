@@ -1,372 +1,83 @@
 """
-=========================================================
-Excel Loader
-N100 Financial Intelligence Platform
-
-Sprint 1 - Day 2
-
-Author : Bhagyesh Mali
-=========================================================
+Automatic Excel Loader
+Sprint 1 - Day 5
 """
 
 from pathlib import Path
 import pandas as pd
 
-from src.etl.normaliser import DataNormalizer
-
 
 class ExcelLoader:
     """
-    Production-grade Excel Loader.
-
-    Responsibilities
-    ----------------
-    1. Discover Excel files
-    2. Validate file existence
-    3. Validate extensions
-    4. Read Excel
-    5. Normalize dataframe
-    6. Preview datasets
-    7. Return cleaned DataFrames
+    Automatically discovers and loads all Excel files
+    inside data/raw/
     """
 
-    def __init__(self, data_directory):
-        self.data_directory = Path(data_directory)
-
-    # =====================================================
-    # FILE VALIDATION
-    # =====================================================
-
-    def file_exists(self, file_path):
-        """Check if file exists."""
-        return Path(file_path).exists()
-
-    def validate_extension(self, file_path):
-        """Allow only Excel files."""
-        return Path(file_path).suffix.lower() in [
-            ".xlsx",
-            ".xls"
-        ]
-
-    # =====================================================
-    # EXCEL READER
-    # =====================================================
-
-    def load_excel(self, file_path, sheet_name=0):
-        """
-        Read an Excel sheet.
-        """
-
-        file_path = Path(file_path)
-
-        if not self.file_exists(file_path):
-            raise FileNotFoundError(
-                f"File not found: {file_path}"
-            )
-
-        if not self.validate_extension(file_path):
-            raise ValueError(
-                f"Invalid file extension: {file_path.suffix}"
-            )
-
-        dataframe = pd.read_excel(
-            file_path,
-            sheet_name=sheet_name
-        )
-
-        return dataframe
-
-    # =====================================================
-    # DATA CLEANING
-    # =====================================================
-
-    def clean_dataframe(self, dataframe):
-        """
-        Apply standard cleaning.
-        """
-
-        dataframe = DataNormalizer.normalize_dataframe(
-            dataframe
-        )
-
-        dataframe.dropna(
-            how="all",
-            inplace=True
-        )
-
-        dataframe.reset_index(
-            drop=True,
-            inplace=True
-        )
-
-        return dataframe
-
-    # =====================================================
-    # COMPLETE PIPELINE
-    # =====================================================
-
-    def load_and_clean(self, file_path, sheet_name=0):
-        """
-        Read + Clean.
-        """
-
-        dataframe = self.load_excel(
-            file_path,
-            sheet_name
-        )
-
-        dataframe = self.clean_dataframe(
-            dataframe
-        )
-
-        return dataframe
-
-    # =====================================================
-    # FILE DISCOVERY
-    # =====================================================
+    def __init__(self, raw_data_path="data/raw"):
+        self.raw_data_path = Path(raw_data_path)
 
     def discover_excel_files(self):
         """
-        Discover every Excel file inside data directory.
+        Finds every .xlsx file recursively.
         """
 
-        excel_files = []
+        excel_files = list(self.raw_data_path.rglob("*.xlsx"))
 
-        for extension in ("*.xlsx", "*.xls"):
+        print("\n" + "=" * 60)
+        print("DISCOVERED EXCEL FILES")
+        print("=" * 60)
 
-            excel_files.extend(
-                self.data_directory.rglob(extension)
-            )
+        for file in excel_files:
+            print(file)
 
-        return sorted(excel_files)
+        return excel_files
 
-    # =====================================================
-    # LOAD SINGLE DATASET
-    # =====================================================
-
-    def load_dataset(self, filename, sheet_name=0):
+    def load_all(self):
         """
-        Load one dataset by filename.
-
-        Example:
-        companies.xlsx
-        """
-
-        file_path = self.data_directory / filename
-
-        dataframe = self.load_and_clean(
-            file_path,
-            sheet_name
-        )
-
-        return dataframe
-
-    # =====================================================
-    # LOAD ALL DATASETS
-    # =====================================================
-
-    def load_all_files(self):
-        """
-        Automatically load every Excel file.
+        Loads every Excel workbook.
         """
 
         datasets = {}
 
         excel_files = self.discover_excel_files()
 
-        print()
-
-        print("=" * 60)
-        print("LOADING EXCEL FILES")
+        print("\n" + "=" * 60)
+        print("LOADING DATASETS")
         print("=" * 60)
 
         for file in excel_files:
 
+            dataset_name = file.stem.lower()
+
             try:
+                df = pd.read_excel(file)
 
-                dataframe = self.load_and_clean(file)
-
-                datasets[file.stem] = dataframe
-
-                print(
-                    f"[SUCCESS] {file.name}"
-                )
-
-            except Exception as error:
+                datasets[dataset_name] = df
 
                 print(
-                    f"[FAILED ] {file.name}"
+                    f"[OK] {dataset_name:<20}"
+                    f"{len(df):>6} rows"
                 )
 
-                print(error)
+            except Exception as e:
 
-        print()
+                print(f"[FAILED] {dataset_name}")
+                print(e)
+
+        print("\nTotal datasets loaded:", len(datasets))
 
         return datasets
 
-    # =====================================================
-    # DATASET SUMMARY
-    # =====================================================
+    def summary(self, datasets):
 
-    def dataset_summary(self, datasets):
-        """
-        Print dataset statistics.
-        """
-
-        print()
-
-        print("=" * 60)
+        print("\n" + "=" * 60)
         print("DATASET SUMMARY")
         print("=" * 60)
 
-        for name, dataframe in datasets.items():
-
-            print()
-
-            print(f"Dataset : {name}")
+        for name, df in datasets.items():
 
             print(
-                f"Rows    : {len(dataframe)}"
+                f"{name:<20}"
+                f"{df.shape[0]:>8} rows"
+                f"{df.shape[1]:>6} cols"
             )
-
-            print(
-                f"Columns : {len(dataframe.columns)}"
-            )
-
-            print(
-                f"Missing : {dataframe.isna().sum().sum()}"
-            )
-
-            print("-" * 60)
-
-    # =====================================================
-    # PREVIEW
-    # =====================================================
-
-    def preview_dataset(
-        self,
-        datasets,
-        dataset_name,
-        rows=5
-    ):
-        """
-        Preview dataset.
-        """
-
-        if dataset_name not in datasets:
-
-            raise ValueError(
-                f"{dataset_name} not loaded."
-            )
-
-        return datasets[dataset_name].head(rows)
-
-    # =====================================================
-    # LIST FILES
-    # =====================================================
-
-    def list_files(self):
-        """
-        Print discovered Excel files.
-        """
-
-        files = self.discover_excel_files()
-
-        print()
-
-        print("=" * 60)
-        print("EXCEL FILES")
-        print("=" * 60)
-
-        for index, file in enumerate(files, start=1):
-
-            print(
-                f"{index}. {file.name}"
-            )
-
-        return files
-
-    # =====================================================
-    # GET ROW COUNTS
-    # =====================================================
-
-    def get_row_counts(self, datasets):
-        """
-        Return row count dictionary.
-        """
-
-        counts = {}
-
-        for name, dataframe in datasets.items():
-
-            counts[name] = len(dataframe)
-
-        return counts
-
-    # =====================================================
-    # GET COLUMN COUNTS
-    # =====================================================
-
-    def get_column_counts(self, datasets):
-        """
-        Return column count dictionary.
-        """
-
-        counts = {}
-
-        for name, dataframe in datasets.items():
-
-            counts[name] = len(dataframe.columns)
-
-        return counts
-
-    # =====================================================
-    # EXPORT SUMMARY
-    # =====================================================
-
-    def export_summary(
-        self,
-        datasets,
-        output_path="output/load_summary.csv"
-    ):
-        """
-        Export dataset statistics.
-        """
-
-        summary = []
-
-        for name, dataframe in datasets.items():
-
-            summary.append({
-
-                "dataset": name,
-
-                "rows": len(dataframe),
-
-                "columns": len(dataframe.columns),
-
-                "missing_values": dataframe.isna().sum().sum()
-
-            })
-
-        summary_df = pd.DataFrame(summary)
-
-        output_path = Path(output_path)
-
-        output_path.parent.mkdir(
-            parents=True,
-            exist_ok=True
-        )
-
-        summary_df.to_csv(
-            output_path,
-            index=False
-        )
-
-        print()
-
-        print(
-            f"Summary exported -> {output_path}"
-        )
-
-        return summary_df

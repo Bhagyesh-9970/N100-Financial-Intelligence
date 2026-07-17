@@ -10,3 +10,15 @@
 2026-07-17 16:02:30,626 INFO peer_groups loaded (56 rows)
 2026-07-17 16:02:30,644 INFO sectors loaded (92 rows)
 2026-07-17 16:02:30,688 INFO stock_prices loaded (5520 rows)
+2026-07-17 16:09:28,171 INFO companies : 93 rows loaded
+2026-07-17 16:09:28,206 INFO profitandloss : 1277 rows loaded
+2026-07-17 16:09:28,238 INFO balancesheet : 1313 rows loaded
+2026-07-17 16:09:28,259 INFO cashflow : 1188 rows loaded
+2026-07-17 16:09:28,288 INFO financial_ratios : 1184 rows loaded
+2026-07-17 16:09:28,307 INFO documents : 1586 rows loaded
+2026-07-17 16:09:28,318 INFO analysis : 21 rows loaded
+2026-07-17 16:09:28,328 INFO prosandcons : 17 rows loaded
+2026-07-17 16:09:28,350 INFO market_cap : 552 rows loaded
+2026-07-17 16:09:28,360 INFO peer_groups : 56 rows loaded
+2026-07-17 16:09:28,370 INFO sectors : 92 rows loaded
+2026-07-17 16:09:28,419 INFO stock_prices : 5520 rows loaded

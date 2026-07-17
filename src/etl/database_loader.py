@@ -1,21 +1,19 @@
-"""
-Production SQLite Database Loader
-Sprint 1 Day 5 Part 4
-"""
-
 from pathlib import Path
 import sqlite3
 import logging
-import pandas as pd
+
+from src.etl.audit import AuditManager
 
 
 class DatabaseLoader:
 
     def __init__(self):
 
-        self.db_path = Path("db/nifty100.db")
+        self.db = Path("db/nifty100.db")
 
-        self.audit = []
+        self.audit = AuditManager()
+
+        Path("logs").mkdir(exist_ok=True)
 
         logging.basicConfig(
 
@@ -27,79 +25,81 @@ class DatabaseLoader:
 
         )
 
-    # ----------------------------------------
-    # Connect
-    # ----------------------------------------
-
     def connect(self):
 
-        return sqlite3.connect(self.db_path)
-
-    # ----------------------------------------
-    # Load All
-    # ----------------------------------------
+        return sqlite3.connect(self.db)
 
     def load_all(self, datasets):
 
         conn = self.connect()
 
-        cursor = conn.cursor()
-
         try:
 
-            cursor.execute("BEGIN TRANSACTION")
+            conn.execute("BEGIN")
 
             print("\n" + "="*60)
-            print("LOADING DATABASE")
+            print("DATABASE LOAD")
             print("="*60)
 
-            for table, dataframe in datasets.items():
+            for table, df in datasets.items():
 
-                dataframe.to_sql(
+                start = self.audit.start_table(table)
+
+                try:
+
+                    conn.execute(f"DELETE FROM {table}")
+
+                except:
+
+                    pass
+
+                df.to_sql(
 
                     table,
 
                     conn,
 
-                    if_exists="replace",
+                    if_exists="append",
 
-                    index=False
+                    index=False,
+
+                    chunksize=1000,
+
+                    method="multi"
 
                 )
 
-                rows = len(dataframe)
-
-                self.audit.append({
-
-                    "table": table,
-
-                    "rows": rows,
-
-                    "status": "SUCCESS"
-
-                })
+                rows = len(df)
 
                 logging.info(
+                    f"{table} : {rows} rows loaded"
+                )
 
-                    f"{table} loaded ({rows} rows)"
+                self.audit.finish_table(
+
+                    table,
+
+                    rows,
+
+                    "SUCCESS",
+
+                    start
 
                 )
 
                 print(
-
-                    f"[OK] {table:<20}{rows:>8} rows"
-
+                    f"[OK] {table:<22}{rows:>8} rows"
                 )
 
             conn.commit()
 
-            print("\nDatabase Load Complete.")
+            print("\nDatabase Commit Successful")
 
         except Exception as e:
 
             conn.rollback()
 
-            logging.error(str(e))
+            logging.exception(e)
 
             print("\nROLLBACK EXECUTED")
 
@@ -109,36 +109,4 @@ class DatabaseLoader:
 
             conn.close()
 
-    # ----------------------------------------
-    # Export Audit
-    # ----------------------------------------
-
-    def export_audit(self):
-
-        df = pd.DataFrame(self.audit)
-
-        output = Path("output/load_audit.csv")
-
-        output.parent.mkdir(
-
-            parents=True,
-
-            exist_ok=True
-
-        )
-
-        df.to_csv(
-
-            output,
-
-            index=False
-
-        )
-
-        print(
-
-            "\nAudit saved ->",
-
-            output
-
-        )
+            self.audit.export()

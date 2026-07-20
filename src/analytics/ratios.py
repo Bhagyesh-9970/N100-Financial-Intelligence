@@ -1,9 +1,9 @@
 """
 N100 Financial Intelligence Platform
-Sprint 2 - Day 08
+Sprint 2
 
 Financial Ratio Engine
-Profitability Ratios
+Day 08 + Day 09
 """
 
 import logging
@@ -110,13 +110,6 @@ class FinancialRatios:
     ):
         """
         Return on Equity (%)
-
-        Formula:
-        Net Profit /
-        (Equity Capital + Reserves)
-
-        Returns:
-            None if Equity <= 0
         """
 
         equity = (
@@ -145,13 +138,6 @@ class FinancialRatios:
     ):
         """
         Return on Capital Employed (%)
-
-        Formula:
-        EBIT /
-        (Equity + Reserves + Borrowings)
-
-        Returns:
-            None if Capital <= 0
         """
 
         capital = (
@@ -179,13 +165,6 @@ class FinancialRatios:
     ):
         """
         Return on Assets (%)
-
-        Formula:
-        Net Profit /
-        Total Assets
-
-        Returns:
-            None if Total Assets <= 0
         """
 
         if total_assets is None or total_assets <= 0:
@@ -197,15 +176,11 @@ class FinancialRatios:
         )
 
     # =====================================================
-    # FINANCIAL SECTOR ROCE CHECK
+    # FINANCIAL SECTOR CHECK
     # =====================================================
 
     @staticmethod
     def is_financial_sector(broad_sector):
-        """
-        Returns True if company belongs
-        to Financials sector.
-        """
 
         if broad_sector is None:
             return False
@@ -213,7 +188,7 @@ class FinancialRatios:
         return str(broad_sector).strip().lower() == "financials"
 
     # =====================================================
-    # ROCE BENCHMARK
+    # ROCE STATUS
     # =====================================================
 
     @staticmethod
@@ -221,17 +196,6 @@ class FinancialRatios:
         roce,
         broad_sector
     ):
-        """
-        Returns benchmark status.
-
-        Financial companies:
-            Benchmark not applicable.
-
-        Others:
-            Good >= 15%
-            Average 10-15%
-            Poor <10%
-        """
 
         if roce is None:
             return "N/A"
@@ -248,3 +212,156 @@ class FinancialRatios:
             return "Average"
 
         return "Poor"
+
+    # =====================================================
+    # DEBT TO EQUITY
+    # =====================================================
+
+    @staticmethod
+    def debt_to_equity(
+        borrowings,
+        equity_capital,
+        reserves
+    ):
+        """
+        Borrowings /
+        (Equity + Reserves)
+
+        Debt Free -> 0
+        """
+
+        borrowings = borrowings or 0
+
+        if borrowings == 0:
+            return 0
+
+        equity = (
+            (equity_capital or 0)
+            + (reserves or 0)
+        )
+
+        if equity <= 0:
+            return None
+
+        return round(
+            borrowings / equity,
+            2
+        )
+
+    # =====================================================
+    # HIGH LEVERAGE FLAG
+    # =====================================================
+
+    @staticmethod
+    def high_leverage_flag(
+        debt_equity,
+        broad_sector
+    ):
+
+        if debt_equity is None:
+            return False
+
+        if FinancialRatios.is_financial_sector(
+            broad_sector
+        ):
+            return False
+
+        return debt_equity > 5
+
+    # =====================================================
+    # INTEREST COVERAGE RATIO
+    # =====================================================
+
+    @staticmethod
+    def interest_coverage_ratio(
+        operating_profit,
+        other_income,
+        interest
+    ):
+        """
+        (Operating Profit + Other Income)
+        /
+        Interest
+        """
+
+        if interest is None or interest == 0:
+            return None
+
+        earnings = (
+            (operating_profit or 0)
+            + (other_income or 0)
+        )
+
+        return round(
+            earnings / interest,
+            2
+        )
+
+    # =====================================================
+    # ICR LABEL
+    # =====================================================
+
+    @staticmethod
+    def icr_label(
+        interest
+    ):
+
+        if interest == 0:
+            return "Debt Free"
+
+        return ""
+
+    # =====================================================
+    # ICR WARNING
+    # =====================================================
+
+    @staticmethod
+    def icr_warning(
+        icr
+    ):
+
+        if icr is None:
+            return False
+
+        return icr < 1.5
+
+    # =====================================================
+    # NET DEBT
+    # =====================================================
+
+    @staticmethod
+    def net_debt(
+        borrowings,
+        investments
+    ):
+        """
+        Borrowings - Investments
+        """
+
+        return (
+            (borrowings or 0)
+            - (investments or 0)
+        )
+
+    # =====================================================
+    # ASSET TURNOVER
+    # =====================================================
+
+    @staticmethod
+    def asset_turnover(
+        sales,
+        total_assets
+    ):
+        """
+        Sales /
+        Total Assets
+        """
+
+        if total_assets is None or total_assets <= 0:
+            return None
+
+        return round(
+            sales / total_assets,
+            2
+        )
+    

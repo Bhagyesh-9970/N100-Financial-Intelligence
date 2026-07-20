@@ -1,56 +1,80 @@
+"""
+N100 Financial Intelligence Platform
+Sprint 2 - Day 08
+
+Financial Ratio Engine
+Profitability Ratios
+"""
+
 import logging
+
 logger = logging.getLogger(__name__)
 
 
 class FinancialRatios:
+    """
+    Financial Ratio Calculation Library
+    """
 
-    # -------------------------------------------------
-    # Net Profit Margin
-    # -------------------------------------------------
+    # =====================================================
+    # NET PROFIT MARGIN
+    # =====================================================
 
     @staticmethod
     def net_profit_margin(net_profit, sales):
-
         """
         Net Profit Margin (%)
 
         Formula:
-        (Net Profit / Sales) × 100
+        Net Profit / Sales × 100
+
+        Returns:
+            None if Sales <= 0
         """
 
-        if sales is None or sales == 0:
+        if sales is None or sales <= 0:
             return None
 
         return round((net_profit / sales) * 100, 2)
 
-    # -------------------------------------------------
-    # Operating Profit Margin
-    # -------------------------------------------------
+    # =====================================================
+    # OPERATING PROFIT MARGIN
+    # =====================================================
 
     @staticmethod
     def operating_profit_margin(operating_profit, sales):
-
         """
         Operating Profit Margin (%)
+
+        Formula:
+        Operating Profit / Sales × 100
+
+        Returns:
+            None if Sales <= 0
         """
 
-        if sales is None or sales == 0:
+        if sales is None or sales <= 0:
             return None
 
         return round((operating_profit / sales) * 100, 2)
 
-    # -------------------------------------------------
-    # OPM Cross Check
-    # -------------------------------------------------
+    # =====================================================
+    # OPM CROSS CHECK
+    # =====================================================
 
     @staticmethod
-    def check_opm(calculated_opm, source_opm, tolerance=1):
-
+    def check_opm(
+        calculated_opm,
+        source_opm,
+        company="",
+        year="",
+        tolerance=1.0
+    ):
         """
-        Compare calculated OPM with source value.
+        Compare calculated OPM with source OPM.
 
         Returns:
-            True  -> Within tolerance
+            True  -> Difference within tolerance
             False -> Difference exceeds tolerance
         """
 
@@ -62,39 +86,55 @@ class FinancialRatios:
         if difference > tolerance:
 
             logger.warning(
-                f"OPM mismatch | Calculated={calculated_opm} "
-                f"Source={source_opm}"
+                f"OPM Mismatch | "
+                f"Company={company} | "
+                f"Year={year} | "
+                f"Calculated={calculated_opm:.2f} | "
+                f"Source={source_opm:.2f} | "
+                f"Difference={difference:.2f}"
             )
 
             return False
 
         return True
 
-    # -------------------------------------------------
-    # Return on Equity
-    # -------------------------------------------------
+    # =====================================================
+    # RETURN ON EQUITY (ROE)
+    # =====================================================
 
     @staticmethod
-    def roe(net_profit, equity_capital, reserves):
-
+    def roe(
+        net_profit,
+        equity_capital,
+        reserves
+    ):
         """
-        ROE (%)
+        Return on Equity (%)
 
         Formula:
         Net Profit /
         (Equity Capital + Reserves)
+
+        Returns:
+            None if Equity <= 0
         """
 
-        equity = equity_capital + reserves
+        equity = (
+            (equity_capital or 0)
+            + (reserves or 0)
+        )
 
         if equity <= 0:
             return None
 
-        return round((net_profit / equity) * 100, 2)
+        return round(
+            (net_profit / equity) * 100,
+            2
+        )
 
-    # -------------------------------------------------
-    # Return on Capital Employed
-    # -------------------------------------------------
+    # =====================================================
+    # RETURN ON CAPITAL EMPLOYED (ROCE)
+    # =====================================================
 
     @staticmethod
     def roce(
@@ -103,39 +143,49 @@ class FinancialRatios:
         reserves,
         borrowings
     ):
-
         """
-        ROCE (%)
+        Return on Capital Employed (%)
 
         Formula:
         EBIT /
         (Equity + Reserves + Borrowings)
+
+        Returns:
+            None if Capital <= 0
         """
 
         capital = (
-            equity_capital +
-            reserves +
-            borrowings
+            (equity_capital or 0)
+            + (reserves or 0)
+            + (borrowings or 0)
         )
 
         if capital <= 0:
             return None
 
-        return round((ebit / capital) * 100, 2)
+        return round(
+            (ebit / capital) * 100,
+            2
+        )
 
-    # -------------------------------------------------
-    # Return on Assets
-    # -------------------------------------------------
+    # =====================================================
+    # RETURN ON ASSETS (ROA)
+    # =====================================================
 
     @staticmethod
-    def roa(net_profit, total_assets):
-
+    def roa(
+        net_profit,
+        total_assets
+    ):
         """
-        ROA (%)
+        Return on Assets (%)
 
         Formula:
         Net Profit /
         Total Assets
+
+        Returns:
+            None if Total Assets <= 0
         """
 
         if total_assets is None or total_assets <= 0:
@@ -145,3 +195,56 @@ class FinancialRatios:
             (net_profit / total_assets) * 100,
             2
         )
+
+    # =====================================================
+    # FINANCIAL SECTOR ROCE CHECK
+    # =====================================================
+
+    @staticmethod
+    def is_financial_sector(broad_sector):
+        """
+        Returns True if company belongs
+        to Financials sector.
+        """
+
+        if broad_sector is None:
+            return False
+
+        return str(broad_sector).strip().lower() == "financials"
+
+    # =====================================================
+    # ROCE BENCHMARK
+    # =====================================================
+
+    @staticmethod
+    def roce_status(
+        roce,
+        broad_sector
+    ):
+        """
+        Returns benchmark status.
+
+        Financial companies:
+            Benchmark not applicable.
+
+        Others:
+            Good >= 15%
+            Average 10-15%
+            Poor <10%
+        """
+
+        if roce is None:
+            return "N/A"
+
+        if FinancialRatios.is_financial_sector(
+            broad_sector
+        ):
+            return "Sector Relative"
+
+        if roce >= 15:
+            return "Good"
+
+        if roce >= 10:
+            return "Average"
+
+        return "Poor"

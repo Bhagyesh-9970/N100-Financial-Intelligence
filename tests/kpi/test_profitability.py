@@ -1,80 +1,132 @@
+"""
+Sprint 2 Day 08
+Profitability Ratio Unit Tests
+"""
+
+import unittest
+
 from src.analytics.ratios import FinancialRatios
 
 
-print("=" * 60)
-print("SPRINT 2 DAY 08")
-print("PROFITABILITY RATIO TESTS")
-print("=" * 60)
+class TestProfitabilityRatios(unittest.TestCase):
 
-print()
+    # -------------------------------------------------
+    # TEST 1
+    # Net Profit Margin - Normal Case
+    # -------------------------------------------------
 
-print("Net Profit Margin")
+    def test_net_profit_margin_normal(self):
 
-print(
-    FinancialRatios.net_profit_margin(
-        120,
-        1000
-    )
-)
+        result = FinancialRatios.net_profit_margin(
+            120,
+            1000
+        )
 
-print()
+        self.assertEqual(result, 12.00)
 
-print("Operating Profit Margin")
+    # -------------------------------------------------
+    # TEST 2
+    # Net Profit Margin - Sales = 0
+    # -------------------------------------------------
 
-print(
-    FinancialRatios.operating_profit_margin(
-        240,
-        1200
-    )
-)
+    def test_net_profit_margin_zero_sales(self):
 
-print()
+        result = FinancialRatios.net_profit_margin(
+            100,
+            0
+        )
 
-print("ROE")
+        self.assertIsNone(result)
 
-print(
-    FinancialRatios.roe(
-        150,
-        400,
-        600
-    )
-)
+    # -------------------------------------------------
+    # TEST 3
+    # Operating Margin
+    # -------------------------------------------------
 
-print()
+    def test_operating_margin(self):
 
-print("ROCE")
+        result = FinancialRatios.operating_profit_margin(
+            250,
+            1000
+        )
 
-print(
-    FinancialRatios.roce(
-        220,
-        500,
-        700,
-        300
-    )
-)
+        self.assertEqual(result, 25.00)
 
-print()
+    # -------------------------------------------------
+    # TEST 4
+    # ROE
+    # -------------------------------------------------
 
-print("ROA")
+    def test_roe(self):
 
-print(
-    FinancialRatios.roa(
-        150,
-        5000
-    )
-)
+        result = FinancialRatios.roe(
+            200,
+            400,
+            600
+        )
 
-print()
+        self.assertEqual(result, 20.00)
 
-print("OPM Cross Check")
+    # -------------------------------------------------
+    # TEST 5
+    # Negative Equity
+    # -------------------------------------------------
 
-print(
-    FinancialRatios.check_opm(
-        20.1,
-        20.4
-    )
-)
+    def test_roe_negative_equity(self):
 
-print()
+        result = FinancialRatios.roe(
+            100,
+            -500,
+            200
+        )
 
-print("All Profitability Tests Completed Successfully.")
+        self.assertIsNone(result)
+
+    # -------------------------------------------------
+    # TEST 6
+    # ROCE
+    # -------------------------------------------------
+
+    def test_roce(self):
+
+        result = FinancialRatios.roce(
+            300,
+            500,
+            500,
+            500
+        )
+
+        self.assertEqual(result, 20.00)
+
+    # -------------------------------------------------
+    # TEST 7
+    # ROA
+    # -------------------------------------------------
+
+    def test_roa(self):
+
+        result = FinancialRatios.roa(
+            200,
+            4000
+        )
+
+        self.assertEqual(result, 5.00)
+
+    # -------------------------------------------------
+    # TEST 8
+    # OPM Cross Check
+    # -------------------------------------------------
+
+    def test_opm_mismatch(self):
+
+        result = FinancialRatios.check_opm(
+            20,
+            23
+        )
+
+        self.assertFalse(result)
+
+
+if __name__ == "__main__":
+
+    unittest.main(verbosity=2)

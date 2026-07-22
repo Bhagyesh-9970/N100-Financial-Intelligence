@@ -34,3 +34,44 @@
 2026-07-20 22:35:37,009 INFO peer_groups : 56 rows loaded
 2026-07-20 22:35:37,024 INFO sectors : 92 rows loaded
 2026-07-20 22:35:37,156 INFO stock_prices : 5520 rows loaded
+2026-07-20 23:33:05,059 ERROR table companies has no column named id
+Traceback (most recent call last):
+  File "C:\Users\Bhagyesh\N100-Financial-Intelligence\src\etl\database_loader.py", line 56, in load_all
+    df.to_sql(
+    ~~~~~~~~~^
+    
+    
+    ...<11 lines>...
+    
+    
+    )
+    ^
+  File "C:\Users\Bhagyesh\N100-Financial-Intelligence\venv\Lib\site-packages\pandas\core\generic.py", line 3052, in to_sql
+    return sql.to_sql(
+           ~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<8 lines>...
+        method=method,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Bhagyesh\N100-Financial-Intelligence\venv\Lib\site-packages\pandas\io\sql.py", line 841, in to_sql
+    return pandas_sql.to_sql(
+           ~~~~~~~~~~~~~~~~~^
+        frame,
+        ^^^^^^
+    ...<9 lines>...
+        **engine_kwargs,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Bhagyesh\N100-Financial-Intelligence\venv\Lib\site-packages\pandas\io\sql.py", line 2880, in to_sql
+    return table.insert(chunksize, method)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Bhagyesh\N100-Financial-Intelligence\venv\Lib\site-packages\pandas\io\sql.py", line 1122, in insert
+    num_inserted = exec_insert(conn, keys, chunk_iter)
+  File "C:\Users\Bhagyesh\N100-Financial-Intelligence\venv\Lib\site-packages\pandas\io\sql.py", line 2579, in _execute_insert_multi
+    conn.execute(self.insert_statement(num_rows=len(data_list)), flattened_data)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: table companies has no column named id

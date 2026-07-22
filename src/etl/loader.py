@@ -16,6 +16,10 @@ class ExcelLoader:
     def __init__(self, raw_data_path="data/raw"):
         self.raw_data_path = Path(raw_data_path)
 
+    # =====================================================
+    # DISCOVER EXCEL FILES
+    # =====================================================
+
     def discover_excel_files(self):
         """
         Finds every .xlsx file recursively.
@@ -31,6 +35,10 @@ class ExcelLoader:
             print(file)
 
         return excel_files
+
+    # =====================================================
+    # LOAD ALL DATASETS
+    # =====================================================
 
     def load_all(self):
         """
@@ -50,12 +58,62 @@ class ExcelLoader:
             dataset_name = file.stem.lower()
 
             try:
-                df = pd.read_excel(file)
+
+                # -------------------------------------------------
+                # Read Excel
+                # -------------------------------------------------
+
+                df = pd.read_excel(
+                    file,
+                    skiprows=1
+                )
+
+                # -------------------------------------------------
+                # Remove empty rows
+                # -------------------------------------------------
+
+                df = df.dropna(how="all")
+
+                # -------------------------------------------------
+                # Clean column names
+                # -------------------------------------------------
+
+                df.columns = (
+
+                    df.columns
+                    .astype(str)
+                    .str.strip()
+                    .str.lower()
+                    .str.replace(" ", "_", regex=False)
+                    .str.replace("%", "_pct", regex=False)
+                    .str.replace("+", "", regex=False)
+                    .str.replace("-", "_", regex=False)
+                    .str.replace("/", "_", regex=False)
+                    .str.replace("(", "", regex=False)
+                    .str.replace(")", "", regex=False)
+                    .str.replace(".", "", regex=False)
+
+                )
+
+                # -------------------------------------------------
+                # Remove duplicate columns
+                # -------------------------------------------------
+
+                df = df.loc[:, ~df.columns.duplicated()]
+
+                # -------------------------------------------------
+                # Reset index
+                # -------------------------------------------------
+
+                df.reset_index(
+                    drop=True,
+                    inplace=True
+                )
 
                 datasets[dataset_name] = df
 
                 print(
-                    f"[OK] {dataset_name:<20}"
+                    f"[OK] {dataset_name:<25}"
                     f"{len(df):>6} rows"
                 )
 
@@ -68,6 +126,10 @@ class ExcelLoader:
 
         return datasets
 
+    # =====================================================
+    # DATASET SUMMARY
+    # =====================================================
+
     def summary(self, datasets):
 
         print("\n" + "=" * 60)
@@ -77,7 +139,18 @@ class ExcelLoader:
         for name, df in datasets.items():
 
             print(
-                f"{name:<20}"
+                f"{name:<25}"
                 f"{df.shape[0]:>8} rows"
                 f"{df.shape[1]:>6} cols"
             )
+
+    # =====================================================
+    # LIST FILES (Backward Compatibility)
+    # =====================================================
+
+    def list_files(self):
+        """
+        Compatibility method for older tests.
+        """
+
+        return self.discover_excel_files()

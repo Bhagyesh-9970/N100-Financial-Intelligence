@@ -1,1 +1,9 @@
-
+rule,severity,table,company,year,message
+DQ-01,CRITICAL,companies,B,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,B,,Duplicate Primary Key: company_id
+DQ-02,CRITICAL,profitandloss,ABC,2024,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,ABC,2024,"Duplicate (company_id, year)"
+DQ-07,WARNING,cashflow,ABC,2024,Net cash flow mismatch
+DQ-08,WARNING,profitandloss,ABC,2024,Invalid tax rate
+DQ-12,CRITICAL,companies,A,,Duplicate ticker
+DQ-12,CRITICAL,companies,B,,Duplicate ticker

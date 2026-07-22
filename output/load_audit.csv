@@ -1,13 +1,13 @@
-table,rows_loaded,status,start_time,end_time,duration_seconds,error
-companies,93,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.029,
-profitandloss,1277,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.042,
-balancesheet,1313,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.039,
-cashflow,1188,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.022,
-financial_ratios,1184,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.037,
-documents,1586,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.026,
-analysis,21,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.008,
-prosandcons,17,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.007,
-market_cap,552,SUCCESS,2026-07-20 22:35:36,2026-07-20 22:35:36,0.016,
-peer_groups,56,SUCCESS,2026-07-20 22:35:37,2026-07-20 22:35:37,0.008,
-sectors,92,SUCCESS,2026-07-20 22:35:37,2026-07-20 22:35:37,0.011,
-stock_prices,5520,SUCCESS,2026-07-20 22:35:37,2026-07-20 22:35:37,0.065,
+table,status,rows,error
+companies,SKIPPED,0,No matching columns
+profitandloss,SKIPPED,0,No matching columns
+balancesheet,SKIPPED,0,No matching columns
+cashflow,SKIPPED,0,No matching columns
+financial_ratios,SUCCESS,1183,
+documents,SKIPPED,0,No matching columns
+analysis,SKIPPED,0,No matching columns
+prosandcons,SKIPPED,0,No matching columns
+market_cap,SKIPPED,0,No matching columns
+peer_groups,SKIPPED,0,No matching columns
+sectors,SKIPPED,0,No matching columns
+stock_prices,SKIPPED,0,No matching columns

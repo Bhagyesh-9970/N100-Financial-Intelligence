@@ -1,9 +1,36 @@
 rule,severity,table,company,year,message
-DQ-01,CRITICAL,companies,B,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,B,,Duplicate Primary Key: company_id
-DQ-02,CRITICAL,profitandloss,ABC,2024,"Duplicate (company_id, year)"
-DQ-02,CRITICAL,profitandloss,ABC,2024,"Duplicate (company_id, year)"
-DQ-07,WARNING,cashflow,ABC,2024,Net cash flow mismatch
-DQ-08,WARNING,profitandloss,ABC,2024,Invalid tax rate
-DQ-12,CRITICAL,companies,A,,Duplicate ticker
-DQ-12,CRITICAL,companies,B,,Duplicate ticker
+DQ-01,CRITICAL,companies,Adani Enterprises Ltd,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,Adani Total Gas Ltd,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,Dr Reddys Laboratories Ltd,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,"Indian Oil Corporation
+",,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,Samvardhana Motherson International Ltd,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,Oil & Natural Gas Corpn Ltd,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,State Bank of India,,Duplicate Primary Key: company_id
+DQ-01,CRITICAL,companies,Sun Pharmaceuticals Industries Ltd,,Duplicate Primary Key: company_id
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2013,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2014,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2015,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2016,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2017,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2018,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2019,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2020,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2021,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2022,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2023,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2024,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,TTM,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2013,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2014,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2015,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2016,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2017,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2018,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2019,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2020,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2021,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2022,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2023,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,Mar 2024,"Duplicate (company_id, year)"
+DQ-02,CRITICAL,profitandloss,Unknown,TTM,"Duplicate (company_id, year)"

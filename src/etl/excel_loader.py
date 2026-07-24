@@ -1,17 +1,16 @@
 """
 N100 Financial Intelligence Platform
-Sprint 1 - Day 5
-
-Automatic Excel Loader
+Excel Loader
 
 Responsibilities:
-- Discover all Excel files inside data/raw/
+- Discover Excel files recursively
+- Automatically detect header rows
 - Load Excel workbooks
-- Skip title rows
 - Normalize column names
-- Remove empty rows
+- Remove title rows
+- Remove empty rows and columns
+- Apply dataset-specific transformations
 - Return datasets as a dictionary
-- Provide load_all_files() for ETL test compatibility
 """
 
 from pathlib import Path
@@ -19,10 +18,6 @@ import pandas as pd
 
 
 class ExcelLoader:
-    """
-    Automatically discovers and loads all Excel files
-    inside the data/raw/ directory recursively.
-    """
 
     def __init__(self, raw_data_path="data/raw"):
         self.raw_data_path = Path(raw_data_path)
@@ -32,12 +27,6 @@ class ExcelLoader:
     # =========================================================
 
     def discover_excel_files(self):
-        """
-        Recursively find all .xlsx files inside raw_data_path.
-
-        Returns:
-            list[Path]
-        """
 
         if not self.raw_data_path.exists():
             raise FileNotFoundError(
@@ -53,88 +42,211 @@ class ExcelLoader:
         print("DISCOVERED EXCEL FILES")
         print("=" * 60)
 
-        if not excel_files:
-            print("No Excel files found.")
-
         for file_path in excel_files:
             print(file_path)
 
         return excel_files
 
     # =========================================================
-    # NORMALIZE COLUMN NAMES
+    # NORMALIZE ONE COLUMN NAME
     # =========================================================
 
     @staticmethod
-    def normalize_columns(df):
-        """
-        Normalize column names.
+    def normalize_column_name(column):
 
-        Example:
+        # Safely handle NaN column names
+        if pd.isna(column):
+            return "unnamed"
 
-        Company ID
-            ->
-        company_id
+        column = str(column)
 
-        OPM %
-            ->
-        opm_pct
-        """
+        column = column.strip().lower()
 
-        df.columns = (
-            df.columns
-            .astype(str)
-            .str.strip()
-            .str.lower()
-            .str.replace(" ", "_", regex=False)
-            .str.replace("%", "pct", regex=False)
-            .str.replace("+", "", regex=False)
-            .str.replace("-", "_", regex=False)
-            .str.replace("/", "_", regex=False)
-            .str.replace("(", "", regex=False)
-            .str.replace(")", "", regex=False)
-            .str.replace(".", "", regex=False)
-        )
+        replacements = {
+            " ": "_",
+            "%": "_pct",
+            "+": "",
+            "-": "_",
+            "/": "_",
+            "(": "",
+            ")": "",
+            ".": "",
+            ",": "",
+            ":": "",
+            "&": "and"
+        }
+
+        for old, new in replacements.items():
+            column = column.replace(old, new)
+
+        # Remove duplicate underscores
+        while "__" in column:
+            column = column.replace(
+                "__",
+                "_"
+            )
+
+        # Remove leading/trailing underscores
+        column = column.strip("_")
+
+        if column == "":
+            column = "unnamed"
+
+        return column
+
+    # =========================================================
+    # NORMALIZE ALL COLUMN NAMES
+    # =========================================================
+
+    @classmethod
+    def normalize_columns(cls, df):
+
+        normalized_columns = []
+
+        used_columns = {}
+
+        for column in df.columns:
+
+            clean_column = cls.normalize_column_name(
+                column
+            )
+
+            # Handle duplicate column names
+            if clean_column in used_columns:
+
+                used_columns[clean_column] += 1
+
+                clean_column = (
+                    f"{clean_column}_"
+                    f"{used_columns[clean_column]}"
+                )
+
+            else:
+
+                used_columns[clean_column] = 0
+
+            normalized_columns.append(
+                clean_column
+            )
+
+        df.columns = normalized_columns
 
         return df
+
+    # =========================================================
+    # DETECT HEADER ROW
+    # =========================================================
+
+    def detect_header_row(
+        self,
+        file_path,
+        max_rows=30
+    ):
+
+        preview = pd.read_excel(
+            file_path,
+            header=None,
+            nrows=max_rows
+        )
+
+        expected_headers = {
+
+            "id",
+            "company_id",
+            "company_name",
+            "year",
+            "sector",
+            "isin",
+            "sales",
+            "revenue",
+            "date",
+            "close",
+            "market_cap",
+            "net_profit_margin_pct",
+            "operating_profit_margin_pct"
+
+        }
+
+        best_row = 0
+
+        best_score = 0
+
+        for index, row in preview.iterrows():
+
+            score = 0
+
+            for value in row:
+
+                # Ignore empty cells safely
+                if pd.isna(value):
+                    continue
+
+                value = str(value)
+
+                value = value.strip().lower()
+
+                value = value.replace(
+                    " ",
+                    "_"
+                )
+
+                if value in expected_headers:
+                    score += 1
+
+            if score > best_score:
+
+                best_score = score
+
+                best_row = index
+
+        return best_row
 
     # =========================================================
     # LOAD ONE EXCEL FILE
     # =========================================================
 
     def load_file(self, file_path):
-        """
-        Load and clean a single Excel file.
-
-        The N100 Excel files contain a title row before
-        the actual header row, therefore skiprows=1.
-
-        Args:
-            file_path: Path to Excel file
-
-        Returns:
-            pandas.DataFrame
-        """
 
         file_path = Path(file_path)
 
         # -----------------------------------------------------
-        # Read Excel
+        # Detect header row
         # -----------------------------------------------------
 
-        df = pd.read_excel(
-            file_path,
-            skiprows=1
+        header_row = self.detect_header_row(
+            file_path
+        )
+
+        print(
+            f"\nLoading: {file_path.name}"
+        )
+
+        print(
+            f"Detected header row: {header_row}"
         )
 
         # -----------------------------------------------------
-        # Normalize column names
+        # Read Excel file
         # -----------------------------------------------------
 
-        df = self.normalize_columns(df)
+        df = pd.read_excel(
+
+            file_path,
+
+            header=header_row
+
+        )
 
         # -----------------------------------------------------
-        # Remove completely empty rows
+        # Normalize columns
+        # -----------------------------------------------------
+
+        df = self.normalize_columns(
+            df
+        )
+
+        # -----------------------------------------------------
+        # Remove empty rows
         # -----------------------------------------------------
 
         df = df.dropna(
@@ -142,7 +254,7 @@ class ExcelLoader:
         )
 
         # -----------------------------------------------------
-        # Remove completely empty columns
+        # Remove empty columns
         # -----------------------------------------------------
 
         df = df.dropna(
@@ -159,6 +271,147 @@ class ExcelLoader:
             inplace=True
         )
 
+        # =====================================================
+        # DATASET-SPECIFIC CLEANING
+        # =====================================================
+
+        dataset_name = file_path.stem.lower()
+
+        # -----------------------------------------------------
+        # COMPANIES DATASET
+        # -----------------------------------------------------
+
+        if dataset_name == "companies":
+
+            print(
+                "Applying companies dataset transformation..."
+            )
+
+            # Current companies dataset contains:
+            #
+            # id
+            # company_logo
+            # company_name
+            # chart_link
+            # about_company
+            # website
+            # nse_profile
+            # bse_profile
+            # face_value
+            # book_value
+            # roce_percentage
+            # roe_percentage
+
+            # The financial datasets use company ticker
+            # values such as ABB, ACC, TCS, etc.
+            #
+            # Therefore create company_id from company_name.
+
+            if "company_id" not in df.columns:
+
+                if "company_name" not in df.columns:
+
+                    raise ValueError(
+                        "Companies dataset must contain "
+                        "'company_name' to generate "
+                        "'company_id'."
+                    )
+
+                df["company_id"] = (
+
+                    df["company_name"]
+
+                    .astype(str)
+
+                    .str.strip()
+
+                    .str.upper()
+
+                )
+
+            # Remove invalid company IDs
+
+            invalid_values = [
+
+                "",
+                "NAN",
+                "NONE",
+                "NULL",
+                "NA"
+
+            ]
+
+            df = df[
+                ~df["company_id"].isin(
+                    invalid_values
+                )
+            ]
+
+        # -----------------------------------------------------
+        # DATASETS WITH COMPANY_ID
+        # -----------------------------------------------------
+
+        if "company_id" in df.columns:
+
+            df["company_id"] = (
+
+                df["company_id"]
+
+                .astype(str)
+
+                .str.strip()
+
+                .str.upper()
+
+            )
+
+            invalid_values = [
+
+                "",
+                "NAN",
+                "NONE",
+                "NULL",
+                "NA"
+
+            ]
+
+            df = df[
+                ~df["company_id"].isin(
+                    invalid_values
+                )
+            ]
+
+        # -----------------------------------------------------
+        # NUMERIC ID
+        # -----------------------------------------------------
+
+        if "id" in df.columns:
+
+            df["id"] = pd.to_numeric(
+
+                df["id"],
+
+                errors="coerce"
+
+            )
+
+        # -----------------------------------------------------
+        # Remove rows where every value is empty
+        # -----------------------------------------------------
+
+        df = df.dropna(
+            how="all"
+        )
+
+        # -----------------------------------------------------
+        # Reset index again
+        # -----------------------------------------------------
+
+        df.reset_index(
+            drop=True,
+            inplace=True
+        )
+
         return df
 
     # =========================================================
@@ -167,33 +420,22 @@ class ExcelLoader:
 
     @staticmethod
     def get_dataset_name(file_path):
-        """
-        Convert filename into dataset name.
 
-        Example:
-
-        profitandloss.xlsx
-            ->
-        profitandloss
-        """
-
-        return Path(file_path).stem.lower()
+        return Path(
+            file_path
+        ).stem.lower()
 
     # =========================================================
-    # LOAD ALL EXCEL FILES
+    # LOAD ALL FILES
     # =========================================================
 
     def load_all(self):
-        """
-        Discover and load all Excel files.
-
-        Returns:
-            dict[str, pandas.DataFrame]
-        """
 
         datasets = {}
 
-        excel_files = self.discover_excel_files()
+        excel_files = (
+            self.discover_excel_files()
+        )
 
         print("\n" + "=" * 60)
         print("LOADING DATASETS")
@@ -201,8 +443,10 @@ class ExcelLoader:
 
         for file_path in excel_files:
 
-            dataset_name = self.get_dataset_name(
-                file_path
+            dataset_name = (
+                self.get_dataset_name(
+                    file_path
+                )
             )
 
             try:
@@ -211,23 +455,44 @@ class ExcelLoader:
                     file_path
                 )
 
-                datasets[dataset_name] = df
+                datasets[
+                    dataset_name
+                ] = df
 
                 print(
+
                     f"[OK] "
+
                     f"{dataset_name:<25}"
+
                     f"{len(df):>8} rows | "
+
                     f"{len(df.columns):>4} columns"
+
+                )
+
+                print(
+
+                    "     Columns:",
+
+                    list(df.columns)
+
                 )
 
             except Exception as error:
 
                 print(
-                    f"[FAILED] {dataset_name}"
+
+                    f"[FAILED] "
+
+                    f"{dataset_name}"
+
                 )
 
                 print(
+
                     f"Reason: {error}"
+
                 )
 
                 raise
@@ -237,8 +502,11 @@ class ExcelLoader:
         print("=" * 60)
 
         print(
+
             f"Total datasets loaded: "
+
             f"{len(datasets)}"
+
         )
 
         return datasets
@@ -248,12 +516,6 @@ class ExcelLoader:
     # =========================================================
 
     def load_all_files(self):
-        """
-        Compatibility method required by the
-        ETL test suite.
-
-        This method delegates to load_all().
-        """
 
         return self.load_all()
 
@@ -262,12 +524,6 @@ class ExcelLoader:
     # =========================================================
 
     def summary(self, datasets):
-        """
-        Display a summary of loaded datasets.
-
-        Args:
-            datasets: Dictionary returned by load_all()
-        """
 
         print("\n" + "=" * 60)
         print("DATASET SUMMARY")
@@ -276,9 +532,13 @@ class ExcelLoader:
         for name, df in datasets.items():
 
             print(
+
                 f"{name:<25}"
+
                 f"{df.shape[0]:>8} rows"
+
                 f"{df.shape[1]:>6} columns"
+
             )
 
     # =========================================================
@@ -286,9 +546,6 @@ class ExcelLoader:
     # =========================================================
 
     def column_summary(self, datasets):
-        """
-        Display columns for every dataset.
-        """
 
         print("\n" + "=" * 60)
         print("COLUMN SUMMARY")
@@ -297,9 +554,11 @@ class ExcelLoader:
         for name, df in datasets.items():
 
             print(f"\n{name}")
+
             print("-" * 40)
 
             for column in df.columns:
+
                 print(
                     f"  - {column}"
                 )
@@ -311,9 +570,7 @@ class ExcelLoader:
 
 if __name__ == "__main__":
 
-    loader = ExcelLoader(
-        raw_data_path="data/raw"
-    )
+    loader = ExcelLoader()
 
     datasets = loader.load_all_files()
 

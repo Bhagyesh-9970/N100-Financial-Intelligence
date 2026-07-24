@@ -1,13 +1,13 @@
-table,status,rows,error
-companies,SKIPPED,0,No matching columns
-profitandloss,SKIPPED,0,No matching columns
-balancesheet,SKIPPED,0,No matching columns
-cashflow,SKIPPED,0,No matching columns
-financial_ratios,SUCCESS,1183,
-documents,SKIPPED,0,No matching columns
-analysis,SKIPPED,0,No matching columns
-prosandcons,SKIPPED,0,No matching columns
-market_cap,SKIPPED,0,No matching columns
-peer_groups,SKIPPED,0,No matching columns
-sectors,SKIPPED,0,No matching columns
-stock_prices,SKIPPED,0,No matching columns
+timestamp,table,status,rows,error
+2026-07-24T18:49:42.562699,companies,SUCCESS,1,
+2026-07-24T18:49:42.562699,sectors,SUCCESS,1,
+2026-07-24T18:49:42.562699,peer_groups,SKIPPED,0,No rows to insert
+2026-07-24T18:49:42.562699,profitandloss,SUCCESS,13,
+2026-07-24T18:49:42.562699,balancesheet,SUCCESS,13,
+2026-07-24T18:49:42.562699,cashflow,SUCCESS,23,
+2026-07-24T18:49:42.562699,financial_ratios,SUCCESS,23,
+2026-07-24T18:49:42.562699,market_cap,SUCCESS,6,
+2026-07-24T18:49:42.562699,stock_prices,SUCCESS,60,
+2026-07-24T18:49:42.562699,documents,SUCCESS,16,
+2026-07-24T18:49:42.562699,analysis,SKIPPED,0,No rows to insert
+2026-07-24T18:49:42.562699,prosandcons,SKIPPED,0,No rows to insert

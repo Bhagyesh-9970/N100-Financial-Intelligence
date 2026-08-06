@@ -1,73 +1,38 @@
+import sys
+from pathlib import Path
+
 import streamlit as st
 
-# ----------------------------------------------------------
-# Page Configuration
-# ----------------------------------------------------------
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-st.set_page_config(
-    page_title="Nifty 100 Analytics",
-    page_icon="📈",
-    layout="wide",
-    initial_sidebar_state="expanded"
+st.set_option("client.showSidebarNavigation", False)
+st.set_page_config(page_title="N100 Financial Intelligence", layout="wide")
+
+from src.dashboard.pages import (
+    home,
+    profile,
+    screener,
+    peers,
+    trends,
+    sectors,
+    capital,
+    reports,
 )
 
-# ----------------------------------------------------------
-# Sidebar
-# ----------------------------------------------------------
+PAGES = {
+    "Home": home.show,
+    "Profile": profile.show,
+    "Screener": screener.show,
+    "Peers": peers.show,
+    "Trends": trends.show,
+    "Sectors": sectors.show,
+    "Capital": capital.show,
+    "Reports": reports.show,
+}
 
-st.sidebar.title("📊 N100 Financial Intelligence")
-st.sidebar.markdown("---")
-
-page = st.sidebar.radio(
-    "Navigation",
-    [
-        "🏠 Home",
-        "🏢 Company Profile",
-        "🔍 Screener",
-        "👥 Peer Comparison",
-        "📈 Trend Analysis",
-        "🏭 Sector Analysis",
-        "💰 Capital Allocation",
-        "📄 Annual Reports"
-    ]
-)
-
-st.sidebar.markdown("---")
-st.sidebar.caption("Version 1.0")
-
-# ----------------------------------------------------------
-# Routing
-# ----------------------------------------------------------
-
-if page == "🏠 Home":
-    from pages import home
-    home.show()
-
-elif page == "🏢 Company Profile":
-    from pages import profile
-    profile.show()
-
-elif page == "🔍 Screener":
-    from pages import screener
-    screener.show()
-
-elif page == "👥 Peer Comparison":
-    from pages import peers
-    peers.show()
-
-elif page == "📈 Trend Analysis":
-    from pages import trends
-    trends.show()
-
-elif page == "🏭 Sector Analysis":
-    from pages import sectors
-    sectors.show()
-
-elif page == "💰 Capital Allocation":
-    from pages import capital
-    capital.show()
-
-elif page == "📄 Annual Reports":
-    from pages import reports
-    reports.show()
+st.sidebar.title("N100 Financial Intelligence")
+selection = st.sidebar.radio("Navigation", list(PAGES.keys()), key="page_selection")
+PAGES[selection]()
 

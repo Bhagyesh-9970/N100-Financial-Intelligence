@@ -1,18 +1,22 @@
 import streamlit as st
 
+from src.dashboard.utils.db import get_screener_data
+
 
 def show():
-    st.title("🏭 Sector Analysis")
+    st.title("🏭 Sectors")
 
-    st.markdown("---")
+    df = get_screener_data()
 
-    st.info("Sprint 4 • Day 25")
+    if df.empty:
+        st.info("No sector data is available yet.")
+        return
 
-    st.write("""
-    ### Upcoming Features
+    sector_counts = df["sector"].fillna("Unknown").astype(str).value_counts().reset_index()
+    sector_counts.columns = ["sector", "companies"]
 
-    - Sector Selection
-    - Bubble Chart
-    - Sector Statistics
-    - Median KPI Analysis
-    """)
+    st.dataframe(sector_counts, use_container_width=True)
+
+
+def render():
+    show()

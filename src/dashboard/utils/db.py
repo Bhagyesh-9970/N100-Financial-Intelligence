@@ -1,213 +1,222 @@
-import streamlit as st
+import sqlite3
+from pathlib import Path
+from typing import Optional, Sequence
+
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-
-from dashboard.utils.db import (
-    get_companies,
-    get_company_profile,
-    get_company_pl,
-    get_company_ratios,
-    get_company_pros_cons,
-)
+import streamlit as st
 
 
-# ---------------------------------------------------
-# Helper Functions
-# ---------------------------------------------------
-
-def safe_value(value, suffix=""):
-    if pd.isna(value):
-        return "N/A"
-    return f"{round(float(value),2)}{suffix}"
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+_DB_CACHE = None
 
 
-def latest_row(df):
-    if df.empty:
-        return None
-
-    temp = df.copy()
-
-    try:
-        temp["year_sort"] = (
-            temp["year"]
-            .astype(str)
-            .str.extract(r"(\d{4})")[0]
-            .astype(float)
-        )
-        temp = temp.sort_values("year_sort")
-    except:
-        pass
-
-    return temp.iloc[-1]
+def _empty_frame(columns: Sequence[str]) -> pd.DataFrame:
+    return pd.DataFrame(columns=list(columns))
 
 
-# ---------------------------------------------------
-# Render Page
-# ---------------------------------------------------
+def _find_data_files():
+    files = []
+    for pattern in ("**/*.csv", "**/*.xlsx", "**/*.xls", "**/*.parquet", "**/*.json", "**/*.db", "**/*.sqlite", "**/*.sqlite3"):
+        files.extend(PROJECT_ROOT.glob(pattern))
+    return [p for p in files if p.is_file()]
 
-def render():
 
-    st.title("📈 Company Profile")
+def _load_dataset() -> pd.DataFrame:
+    global _DB_CACHE
+    if _DB_CACHE is not None:
+        return _DB_CACHE
 
-    companies = get_companies()
+    for path in _find_data_files():
+        try:
+            if path.suffix.lower() == ".csv":
+                df = pd.read_csv(path)
+            elif path.suffix.lower() in {".xlsx", ".xls"}:
+                df = pd.read_excel(path)
+            elif path.suffix.lower() == ".parquet":
+                df = pd.read_parquet(path)
+            elif path.suffix.lower() == ".json":
+                df = pd.read_json(path)
+            else:
+                continue
+        except Exception:
+            continue
 
-    company_options = (
-        companies["company_id"].astype(str)
-        + " - "
-        + companies["company_name"].astype(str)
-    ).unique()
+        if df is not None and not df.empty:
+            _DB_CACHE = df
+            return df
 
-    selected = st.selectbox(
-        "Search Company",
-        sorted(company_options)
+    _DB_CACHE = _empty_frame(
+        [
+            "company_id",
+            "company_name",
+            "ticker",
+            "sector",
+            "sub_sector",
+            "market_cap",
+            "return_on_equity_pct",
+            "debt_to_equity",
+            "net_profit_margin_pct",
+            "revenue_cagr_5yr",
+            "pe_ratio",
+            "pb_ratio",
+            "ev_ebitda",
+            "fcf",
+        ]
+    )
+    return _DB_CACHE
+
+
+def _ensure_columns(df: pd.DataFrame, columns: Sequence[str]) -> pd.DataFrame:
+    out = df.copy()
+    for column in columns:
+        if column not in out.columns:
+            out[column] = pd.NA
+    return out
+
+
+@st.cache_data(ttl=600)
+def get_companies() -> pd.DataFrame:
+    df = _load_dataset()
+    return _ensure_columns(
+        df,
+        [
+            "company_id",
+            "company_name",
+            "ticker",
+            "sector",
+            "sub_sector",
+            "market_cap",
+            "return_on_equity_pct",
+            "debt_to_equity",
+            "net_profit_margin_pct",
+            "revenue_cagr_5yr",
+            "pe_ratio",
+            "pb_ratio",
+            "ev_ebitda",
+            "fcf",
+        ],
     )
 
-    ticker = selected.split(" - ")[0]
 
-    profile = get_company_profile(ticker)
-    ratios = get_company_ratios(ticker)
-    pl = get_company_pl(ticker)
-    proscons = get_company_pros_cons(ticker)
+@st.cache_data(ttl=600)
+def get_ratios(ticker: Optional[str] = None, year: Optional[int] = None) -> pd.DataFrame:
+    df = get_companies()
+    if ticker:
+        df = df[df["ticker"].astype(str).str.upper() == str(ticker).strip().upper()]
+    if year and "year" in df.columns:
+        df = df[df["year"] == year]
+    return df
 
-    if profile.empty:
 
-        st.warning("Ticker not found.")
-        return
+@st.cache_data(ttl=600)
+def get_pl(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_companies()
 
-    company = profile.iloc[0]
 
-    # ---------------------------------------------
-    # Company Card
-    # ---------------------------------------------
+@st.cache_data(ttl=600)
+def get_bs(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_companies()
 
-    st.markdown("---")
 
-    st.subheader(company["company_name"])
+@st.cache_data(ttl=600)
+def get_cf(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_companies()
 
-    c1, c2, c3 = st.columns(3)
 
-    with c1:
+@st.cache_data(ttl=600)
+def get_sectors() -> pd.DataFrame:
+    df = get_companies()
+    if df.empty:
+        return _empty_frame(["sector", "companies"])
+    counts = df["sector"].fillna("Unknown").astype(str).value_counts().reset_index()
+    counts.columns = ["sector", "companies"]
+    return counts
 
-        st.markdown(
-            f"""
-**Ticker**
 
-{company["company_id"]}
-"""
-        )
+@st.cache_data(ttl=600)
+def get_peers(group_name: Optional[str] = None) -> pd.DataFrame:
+    df = get_companies()
+    if group_name:
+        if "peer_group" in df.columns:
+            df = df[df["peer_group"].astype(str).str.lower() == str(group_name).strip().lower()]
+    return df
 
-        st.markdown(
-            f"""
-**ISIN**
 
-{company["isin"] if pd.notna(company["isin"]) else "N/A"}
-"""
-        )
+@st.cache_data(ttl=600)
+def get_valuation(ticker: Optional[str] = None) -> pd.DataFrame:
+    df = get_companies()
+    if ticker:
+        df = df[df["ticker"].astype(str).str.upper() == str(ticker).strip().upper()]
+    return df
 
-    with c2:
 
-        st.markdown(
-            f"""
-**Sector**
+@st.cache_data(ttl=600)
+def database_health() -> pd.DataFrame:
+    df = get_companies()
+    if df.empty:
+        return pd.DataFrame([{"status": "offline", "details": "No data source found."}])
+    return pd.DataFrame([{"status": "ok", "details": "Data source loaded."}])
 
-{company["sector"] if pd.notna(company["sector"]) else "N/A"}
-"""
-        )
 
-        st.markdown(
-            f"""
-**Broad Sector**
+@st.cache_data(ttl=600)
+def get_dashboard_summary() -> pd.DataFrame:
+    df = get_companies()
+    if df.empty:
+        return _empty_frame(["metric", "value"])
 
-{company["broad_sector"] if pd.notna(company["broad_sector"]) else "N/A"}
-"""
-        )
+    summary = pd.DataFrame(
+        [
+            ("Total Companies", len(df)),
+            ("Average ROE", df["return_on_equity_pct"].mean() if "return_on_equity_pct" in df.columns else 0),
+            ("Median P/E", df["pe_ratio"].median() if "pe_ratio" in df.columns else 0),
+            ("Median D/E", df["debt_to_equity"].median() if "debt_to_equity" in df.columns else 0),
+        ],
+        columns=["metric", "value"],
+    )
+    return summary
 
-    with c3:
 
-        st.markdown(
-            f"""
-**Industry**
+@st.cache_data(ttl=600)
+def get_screener_data() -> pd.DataFrame:
+    return get_companies()
 
-{company["industry"] if pd.notna(company["industry"]) else "N/A"}
-"""
-        )
 
-    st.markdown("---")
+@st.cache_data(ttl=600)
+def get_company_profile(query: Optional[str] = None) -> pd.DataFrame:
+    df = get_companies()
+    if not query:
+        return df
+    query = str(query).strip().upper()
+    if "ticker" in df.columns:
+        df = df[df["ticker"].astype(str).str.upper() == query]
+    if df.empty and "company_name" in df.columns:
+        df = df[df["company_name"].astype(str).str.upper().str.contains(query, na=False)]
+    return df
 
-    # ---------------------------------------------
-    # KPI Cards
-    # ---------------------------------------------
 
-    latest_ratio = latest_row(ratios)
+@st.cache_data(ttl=600)
+def get_company_pl(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_companies()
 
-    latest_pl = latest_row(pl)
 
-    if latest_ratio is not None:
+@st.cache_data(ttl=600)
+def get_company_ratios(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_ratios(ticker=ticker)
 
-        c1, c2, c3 = st.columns(3)
 
-        c4, c5, c6 = st.columns(3)
+@st.cache_data(ttl=600)
+def get_company_trends(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_companies()
 
-        with c1:
 
-            st.metric(
-                "ROE",
-                safe_value(
-                    latest_ratio["return_on_equity_pct"],
-                    "%"
-                )
-            )
+@st.cache_data(ttl=600)
+def get_peer_data(ticker: Optional[str] = None) -> pd.DataFrame:
+    df = get_peers()
+    if ticker and "ticker" in df.columns:
+        df = df[df["ticker"].astype(str).str.upper() == str(ticker).strip().upper()]
+    return df
 
-        with c2:
 
-            st.metric(
-                "Net Profit Margin",
-                safe_value(
-                    latest_ratio["net_profit_margin_pct"],
-                    "%"
-                )
-            )
-
-        with c3:
-
-            st.metric(
-                "Debt / Equity",
-                safe_value(
-                    latest_ratio["debt_to_equity"]
-                )
-            )
-
-        with c4:
-
-            st.metric(
-                "Interest Coverage",
-                safe_value(
-                    latest_ratio["interest_coverage"]
-                )
-            )
-
-        with c5:
-
-            st.metric(
-                "Free Cash Flow",
-                safe_value(
-                    latest_ratio["free_cash_flow_cr"]
-                )
-            )
-
-        with c6:
-
-            revenue = (
-                latest_pl["sales"]
-                if latest_pl is not None
-                else None
-            )
-
-            st.metric(
-                "Revenue",
-                safe_value(revenue)
-            )
-
-    st.markdown("---")
-    
+@st.cache_data(ttl=600)
+def get_valuation_data(ticker: Optional[str] = None) -> pd.DataFrame:
+    return get_valuation(ticker=ticker)

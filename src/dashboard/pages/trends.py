@@ -1,18 +1,19 @@
 import streamlit as st
 
+from src.dashboard.utils.db import get_company_trends
+
 
 def show():
-    st.title("📈 Trend Analysis")
+    st.title("📈 Company Trends")
 
-    st.markdown("---")
+    trends = get_company_trends()
 
-    st.info("Sprint 4 • Day 25")
+    if trends.empty:
+        st.info("No trend data is available yet.")
+        return
 
-    st.write("""
-    ### Upcoming Features
+    st.dataframe(trends, use_container_width=True)
 
-    - Company Search
-    - Metric Selection
-    - 10-Year Trends
-    - Growth Analysis
-    """)
+
+def render():
+    show()

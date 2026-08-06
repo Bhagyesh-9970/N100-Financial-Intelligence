@@ -1,17 +1,19 @@
 import streamlit as st
 
+from src.dashboard.utils.db import get_valuation_data
+
 
 def show():
-    st.title("💰 Capital Allocation")
+    st.title("💰 Capital & Valuation")
 
-    st.markdown("---")
+    valuation = get_valuation_data()
 
-    st.info("Sprint 4 • Day 25")
+    if valuation.empty:
+        st.info("No valuation data is available yet.")
+        return
 
-    st.write("""
-    ### Upcoming Features
+    st.dataframe(valuation, use_container_width=True)
 
-    - Capital Allocation Treemap
-    - Capital Pattern Analysis
-    - Company Classification
-    """)
+
+def render():
+    show()

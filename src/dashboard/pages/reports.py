@@ -1,18 +1,19 @@
 import streamlit as st
 
+from src.dashboard.utils.db import database_health, get_dashboard_summary
+
 
 def show():
-    st.title("📄 Annual Reports")
+    st.title("📑 Reports")
 
-    st.markdown("---")
+    health = database_health()
+    st.dataframe(health, use_container_width=True)
 
-    st.info("Sprint 4 • Day 25")
+    summary = get_dashboard_summary()
+    if not summary.empty:
+        st.subheader("Dashboard Summary")
+        st.dataframe(summary, use_container_width=True)
 
-    st.write("""
-    ### Upcoming Features
 
-    - Company Search
-    - Annual Report List
-    - PDF Links
-    - Report Availability
-    """)
+def render():
+    show()

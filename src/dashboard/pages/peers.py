@@ -1,18 +1,19 @@
 import streamlit as st
 
+from src.dashboard.utils.db import get_peer_data
+
 
 def show():
-    st.title("👥 Peer Comparison")
+    st.title("🤝 Peer Comparison")
 
-    st.markdown("---")
+    peers = get_peer_data()
 
-    st.info("Sprint 4 • Day 24")
+    if peers.empty:
+        st.info("No peer data is available yet.")
+        return
 
-    st.write("""
-    ### Upcoming Features
+    st.dataframe(peers, use_container_width=True)
 
-    - Peer Group Selection
-    - Radar Chart
-    - Benchmark Comparison
-    - KPI Comparison Table
-    """)
+
+def render():
+    show()

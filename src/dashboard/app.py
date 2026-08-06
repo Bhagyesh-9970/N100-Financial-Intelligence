@@ -7,9 +7,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-st.set_option("client.showSidebarNavigation", False)
 st.set_page_config(page_title="N100 Financial Intelligence", layout="wide")
+st.set_option("client.showSidebarNavigation", False)
 
+from src.analytics.valuation import build_valuation_summary
 from src.dashboard.pages import (
     home,
     profile,
@@ -20,6 +21,11 @@ from src.dashboard.pages import (
     capital,
     reports,
 )
+
+try:
+    build_valuation_summary()
+except Exception:
+    pass
 
 PAGES = {
     "Home": home.show,
@@ -33,6 +39,6 @@ PAGES = {
 }
 
 st.sidebar.title("N100 Financial Intelligence")
-selection = st.sidebar.radio("Navigation", list(PAGES.keys()), key="page_selection")
+selection = st.sidebar.radio("Navigate", list(PAGES.keys()), key="page_selection")
 PAGES[selection]()
 

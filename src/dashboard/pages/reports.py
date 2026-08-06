@@ -1,6 +1,8 @@
+import pandas as pd
+import requests
 import streamlit as st
 
-from src.dashboard.utils.db import database_health, get_dashboard_summary
+from src.dashboard.utils.db import database_health, get_company_profile, get_dashboard_summary
 
 
 def show():

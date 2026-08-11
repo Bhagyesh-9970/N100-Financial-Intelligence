@@ -1,0 +1,581 @@
+company_id,type,rule_id,text,confidence_pct
+ABB,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+ABB,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+ABB,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ABB,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ABB,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+ADANIENSOL,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+ADANIENSOL,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+ADANIENSOL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ADANIENSOL,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+ADANIENSOL,con,D/E > 2.0 for non-financial,Debt-to-equity ratio of X is elevated for a non-financial company and warrants monitoring,84
+ADANIENSOL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ADANIENSOL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ADANIENSOL,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+ADANIENT,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+ADANIENT,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+ADANIENT,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ADANIENT,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ADANIENT,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ADANIENT,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+ADANIENT,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ADANIENT,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+ADANIGREEN,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+ADANIGREEN,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+ADANIGREEN,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ADANIGREEN,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+ADANIGREEN,con,D/E > 2.0 for non-financial,Debt-to-equity ratio of X is elevated for a non-financial company and warrants monitoring,84
+ADANIGREEN,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ADANIGREEN,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ADANIGREEN,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+ADANIPORTS,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+ADANIPORTS,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ADANIPORTS,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ADANIPORTS,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ADANIPORTS,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ADANIPOWER,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+ADANIPOWER,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+ADANIPOWER,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+ADANIPOWER,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ADANIPOWER,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+ADANIPOWER,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ADANIPOWER,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ADANIPOWER,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+ADANIPOWER,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+AMBUJACEM,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+AMBUJACEM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+AMBUJACEM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+AMBUJACEM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+AMBUJACEM,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+AMBUJACEM,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+APOLLOHOSP,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+APOLLOHOSP,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+APOLLOHOSP,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+APOLLOHOSP,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+APOLLOHOSP,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ASIANPAINT,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+ASIANPAINT,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+ASIANPAINT,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ASIANPAINT,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ASIANPAINT,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ASIANPAINT,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ASIANPAINT,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+AXISBANK,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+AXISBANK,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+AXISBANK,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+AXISBANK,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+AXISBANK,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+AXISBANK,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+BAJAJ-AUTO,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+BAJAJ-AUTO,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BAJAJ-AUTO,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BAJAJ-AUTO,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BAJAJ-AUTO,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BAJAJ-AUTO,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BAJAJ-AUTO,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BAJAJ-AUTO,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+BAJAJFINSV,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+BAJAJFINSV,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+BAJAJFINSV,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+BAJAJFINSV,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+BAJAJFINSV,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BAJAJFINSV,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BAJAJFINSV,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BAJAJFINSV,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+BAJAJHLDNG,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+BAJAJHLDNG,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+BAJAJHLDNG,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BAJAJHLDNG,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BAJAJHLDNG,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+BAJAJHLDNG,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BAJAJHLDNG,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BAJAJHLDNG,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BAJAJHLDNG,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+BAJFINANCE,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+BAJFINANCE,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+BAJFINANCE,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+BAJFINANCE,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BAJFINANCE,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BAJFINANCE,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BAJFINANCE,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+BANKBARODA,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+BANKBARODA,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+BANKBARODA,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+BANKBARODA,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BANKBARODA,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BANKBARODA,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BANKBARODA,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BANKBARODA,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BANKBARODA,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+BEL,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+BEL,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BEL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BEL,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BEL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BEL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BHARTIARTL,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+BHARTIARTL,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+BHARTIARTL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BHARTIARTL,con,D/E > 2.0 for non-financial,Debt-to-equity ratio of X is elevated for a non-financial company and warrants monitoring,84
+BHARTIARTL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BHARTIARTL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BHEL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BHEL,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+BHEL,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BHEL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BHEL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BHEL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BHEL,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+BHEL,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+BOSCHLTD,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BOSCHLTD,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BOSCHLTD,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BOSCHLTD,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BOSCHLTD,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BPCL,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+BPCL,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+BPCL,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BPCL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BPCL,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BPCL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+BPCL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+BPCL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+BRITANNIA,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+BRITANNIA,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+BRITANNIA,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+BRITANNIA,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+BRITANNIA,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+CANBK,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+CANBK,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+CANBK,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+CANBK,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+CANBK,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+CANBK,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+CANBK,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+CHOLAFIN,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+CHOLAFIN,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+CHOLAFIN,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+CHOLAFIN,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+CHOLAFIN,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+CHOLAFIN,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+CHOLAFIN,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+CIPLA,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+CIPLA,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+CIPLA,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+CIPLA,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+CIPLA,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+CIPLA,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+COALINDIA,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+COALINDIA,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+COALINDIA,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+COALINDIA,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+COALINDIA,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+COALINDIA,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+COALINDIA,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+COALINDIA,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+DABUR,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+DABUR,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+DABUR,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+DABUR,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+DABUR,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+DIVISLAB,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+DIVISLAB,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+DIVISLAB,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+DIVISLAB,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+DIVISLAB,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+DIVISLAB,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+DIVISLAB,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+DIVISLAB,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+DLF,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+DLF,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+DLF,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+DLF,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+DLF,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+DLF,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+DLF,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+DLF,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+DMART,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+DMART,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+DMART,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+DMART,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+DMART,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+DMART,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+EICHERMOT,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+EICHERMOT,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+EICHERMOT,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+EICHERMOT,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+EICHERMOT,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+EICHERMOT,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+EICHERMOT,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+EICHERMOT,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+GAIL,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+GAIL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+GAIL,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+GAIL,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+GAIL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+GAIL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+GAIL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+GODREJCP,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+GODREJCP,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+GODREJCP,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+GODREJCP,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+GODREJCP,con,Net profit negative in latest year,Company reported a net loss in the most recent financial year,88
+GODREJCP,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+GRASIM,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+GRASIM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+GRASIM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+GRASIM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+GRASIM,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+GRASIM,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+HAL,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+HAL,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+HAL,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+HAL,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HAL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HAL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+HAVELLS,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HAVELLS,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HAVELLS,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+HAVELLS,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+HAVELLS,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+HAVELLS,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+HAVELLS,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+HCLTECH,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+HCLTECH,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HCLTECH,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HCLTECH,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+HCLTECH,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+HCLTECH,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+HCLTECH,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+HDFCBANK,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+HDFCBANK,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+HDFCBANK,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HDFCBANK,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+HDFCBANK,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+HDFCBANK,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+HDFCLIFE,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+HDFCLIFE,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+HDFCLIFE,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HDFCLIFE,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HDFCLIFE,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+HDFCLIFE,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+HDFCLIFE,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+HEROMOTOCO,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+HEROMOTOCO,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+HEROMOTOCO,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HEROMOTOCO,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+HEROMOTOCO,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+HEROMOTOCO,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+HEROMOTOCO,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+HEROMOTOCO,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+HEROMOTOCO,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+HINDALCO,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+HINDALCO,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HINDALCO,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HINDALCO,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+HINDALCO,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+HINDALCO,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+HINDUNILVR,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+HINDUNILVR,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+HINDUNILVR,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+HINDUNILVR,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+HINDUNILVR,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+HINDUNILVR,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ICICIBANK,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+ICICIBANK,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+ICICIBANK,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ICICIBANK,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ICICIBANK,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+ICICIBANK,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+ICICIBANK,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+ICICIGI,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+ICICIGI,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+ICICIGI,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ICICIGI,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+ICICIGI,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ICICIGI,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ICICIGI,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+ICICIPRULI,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+ICICIPRULI,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+ICICIPRULI,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+ICICIPRULI,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ICICIPRULI,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+INDIGO,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+INDIGO,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+INDIGO,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+INDIGO,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+INDIGO,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+INDIGO,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+INDIGO,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+INDIGO,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+INDIGO,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+INDUSINDBK,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+INDUSINDBK,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+INDUSINDBK,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+INDUSINDBK,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+INDUSINDBK,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+INDUSINDBK,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+INDUSINDBK,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+INFY,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+INFY,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+INFY,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+INFY,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+INFY,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+INFY,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+IRCTC,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+IRCTC,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+IRCTC,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+IRCTC,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+IRCTC,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+IRCTC,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+IRCTC,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+IRCTC,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+IRCTC,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+IRFC,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+IRFC,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+IRFC,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+IRFC,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+IRFC,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+IRFC,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+IRFC,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+ITC,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+ITC,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+ITC,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+ITC,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+ITC,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+ITC,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+ITC,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+ITC,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+JINDALSTEL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+JINDALSTEL,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+JINDALSTEL,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+JINDALSTEL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+JINDALSTEL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+JINDALSTEL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+JINDALSTEL,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+JIOFIN,pro,D/E = 0 in latest year,Debt-free balance sheet provides financial flexibility and eliminates interest burden,86
+JIOFIN,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+JIOFIN,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+JIOFIN,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+JIOFIN,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+JSWENERGY,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+JSWENERGY,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+JSWENERGY,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+JSWENERGY,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+JSWENERGY,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+JSWENERGY,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+JSWENERGY,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+JSWENERGY,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+JSWENERGY,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+JSWSTEEL,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+JSWSTEEL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+JSWSTEEL,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+JSWSTEEL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+JSWSTEEL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+JSWSTEEL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+KOTAKBANK,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+KOTAKBANK,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+KOTAKBANK,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+KOTAKBANK,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+KOTAKBANK,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+KOTAKBANK,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+LICI,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+LICI,pro,D/E = 0 in latest year,Debt-free balance sheet provides financial flexibility and eliminates interest burden,86
+LICI,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+LICI,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+LICI,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+LICI,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+LODHA,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+LODHA,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+LODHA,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+LODHA,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+LODHA,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+LODHA,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+LODHA,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+LODHA,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+LT,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+LT,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+LT,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+LT,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+LT,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+LT,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+LTIM,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+LTIM,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+LTIM,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+LTIM,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+LTIM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+LTIM,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+LTIM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+LTIM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+LTIM,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+M&M,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+M&M,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+M&M,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+M&M,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+MARUTI,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+MARUTI,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+MARUTI,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+MARUTI,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+MARUTI,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+MARUTI,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+NAUKRI,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+NAUKRI,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+NAUKRI,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+NAUKRI,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+NAUKRI,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+NAUKRI,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+NAUKRI,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+NAUKRI,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+NESTLEIND,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+NESTLEIND,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+NESTLEIND,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+NESTLEIND,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+NESTLEIND,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+NHPC,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+NHPC,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+NHPC,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+NHPC,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+NHPC,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+NHPC,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+NHPC,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+NHPC,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+NHPC,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+NTPC,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+NTPC,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+NTPC,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+NTPC,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+NTPC,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+PFC,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+PFC,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+PFC,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+PFC,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+PFC,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+PFC,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+PFC,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+PIDILITIND,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+PIDILITIND,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+PIDILITIND,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+PIDILITIND,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+PIDILITIND,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+PIDILITIND,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+PNB,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+PNB,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+PNB,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+PNB,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+PNB,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+PNB,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+PNB,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+PNB,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+POWERGRID,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+POWERGRID,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+POWERGRID,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+POWERGRID,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+POWERGRID,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+POWERGRID,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+RECLTD,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+RECLTD,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+RECLTD,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+RECLTD,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+RECLTD,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+RECLTD,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+RELIANCE,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+RELIANCE,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+RELIANCE,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+RELIANCE,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+SBILIFE,pro,D/E = 0 in latest year,Debt-free balance sheet provides financial flexibility and eliminates interest burden,86
+SBILIFE,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+SBILIFE,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+SBILIFE,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+SBILIFE,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+SBILIFE,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+SBILIFE,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+SHREECEM,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+SHREECEM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+SHREECEM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+SHREECEM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+SHRIRAMFIN,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+SHRIRAMFIN,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+SHRIRAMFIN,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+SHRIRAMFIN,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+SHRIRAMFIN,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+SHRIRAMFIN,con,ICR < 1.5,Interest coverage ratio below 1.5x indicates the company is at risk of not meeting its debt obligations,82
+SHRIRAMFIN,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+SHRIRAMFIN,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+SIEMENS,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+SIEMENS,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+SIEMENS,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+SIEMENS,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+SIEMENS,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TATACONSUM,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+TATACONSUM,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+TATACONSUM,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+TATACONSUM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TATACONSUM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TATACONSUM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TATACONSUM,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TATACONSUM,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+TATAMOTORS,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+TATAMOTORS,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TATAMOTORS,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+TATAMOTORS,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TATAMOTORS,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TATAMOTORS,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+TATAMOTORS,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TATAPOWER,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+TATAPOWER,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TATAPOWER,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+TATAPOWER,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TATAPOWER,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TATAPOWER,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+TATAPOWER,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TATAPOWER,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+TATASTEEL,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TATASTEEL,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+TATASTEEL,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TATASTEEL,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TATASTEEL,con,Net profit negative in latest year,Company reported a net loss in the most recent financial year,88
+TATASTEEL,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+TATASTEEL,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TATASTEEL,con,ROCE < 10%,Return on capital employed below 10% suggests the business is not generating sufficient returns on invested capital,70
+TCS,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+TCS,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+TCS,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+TCS,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TCS,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+TCS,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TCS,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TCS,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TECHM,pro,ICR > 10 or Debt Free,Very high interest coverage ratio reflects negligible financial stress from debt servicing,78
+TECHM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TECHM,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+TECHM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TECHM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TECHM,con,Dividend payout > 100%,"Dividend payout ratio above 100% means the company is paying dividends from reserves, which is unsustainable",76
+TECHM,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TECHM,con,Revenue CAGR < 5% over 5 years,Revenue growing at below 5% over 5 years lags inflation and suggests limited business momentum,66
+TITAN,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+TITAN,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+TITAN,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+TITAN,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TITAN,pro,Revenue CAGR > PAT CAGR,Revenue growing slower than profits shows improving operating leverage and scale benefits,70
+TITAN,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TITAN,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TITAN,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TORNTPHARM,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+TORNTPHARM,pro,OPM > 25% in latest year,Operating profit margin above 25% indicates strong pricing power and cost discipline,82
+TORNTPHARM,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+TORNTPHARM,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TORNTPHARM,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TORNTPHARM,con,OPM declining for 3 consecutive years,Operating margins declining for 3 consecutive years suggest pricing or cost pressure,80
+TORNTPHARM,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TRENT,pro,Revenue CAGR > 15% over 5 years,Revenue growing at above 15% CAGR over 5 years reflects strong business momentum,84
+TRENT,pro,PAT CAGR > 20% over 5 years,Net profit compounding at above 20% over 5 years creates significant shareholder value,80
+TRENT,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TRENT,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TRENT,con,Revenue declining for 2+ years,Revenue contraction over 2 consecutive years indicates demand weakness or market share loss,78
+TRENT,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74
+TVSMOTOR,pro,ROE > 20% sustained for 3+ years,Consistently high return on equity above 20% demonstrates exceptional capital efficiency,90
+TVSMOTOR,pro,ROE improving for 3 consecutive years,Return on equity improving for 3 consecutive years shows strengthening business quality,72
+TVSMOTOR,pro,Assets growing with declining debt,Growing asset base funded by internal accruals reflects self-sustaining growth,68
+TVSMOTOR,con,D/E > 2.0 for non-financial,Debt-to-equity ratio of X is elevated for a non-financial company and warrants monitoring,84
+TVSMOTOR,con,D/E rising for 3 consecutive years,Rising debt-to-equity ratio over 3 years suggests increasing financial leverage risk,74

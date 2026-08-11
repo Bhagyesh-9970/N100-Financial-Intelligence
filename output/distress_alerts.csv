@@ -1,0 +1,14 @@
+company_id,sector,cfo_quality_score,cfo_quality_label,capex_intensity_pct,capex_label,fcf_cagr_5yr,fcf_conversion_pct,distress_flag,deleveraging_flag,capital_allocation_label
+AXISBANK,Financials,0.58,Moderate,8.23,Capital Intensive,,-38.36,True,False,Growth Funded by Debt
+BAJAJFINSV,Financials,0.04,Accrual Risk,9.93,Capital Intensive,18.57,-194.77,True,False,Growth Funded by Debt
+BAJFINANCE,Financials,0.0,Accrual Risk,13.04,Capital Intensive,18.34,-496.5,True,False,Growth Funded by Debt
+BANKBARODA,Financials,0.62,Moderate,1.09,Asset Light,13.65,-17.03,True,False,Growth Funded by Debt
+BHEL,Industrials,0.46,Accrual Risk,5.57,Moderate,4.18,-335.02,True,False,Distress Signal
+CHOLAFIN,Financials,0.0,Accrual Risk,14.9,Capital Intensive,32.81,-715.65,True,False,Growth Funded by Debt
+GRASIM,Industrials,0.62,Moderate,17.65,Capital Intensive,54.28,-124.41,True,False,Growth Funded by Debt
+M&M,Consumer Discretionary,0.29,Accrual Risk,4.04,Moderate,-0.48,-45.18,True,False,Growth Funded by Debt
+PFC,Financials,0.04,Accrual Risk,3.73,Moderate,1.55,-301.52,True,False,Growth Funded by Debt
+PNB,Financials,0.58,Moderate,1.38,Asset Light,0.0,,True,False,Growth Funded by Debt
+RECLTD,Financials,0.08,Accrual Risk,3.85,Moderate,10.96,-124.37,True,False,Growth Funded by Debt
+SHRIRAMFIN,Financials,0.0,Accrual Risk,0.71,Asset Light,41.08,-298.0,True,False,Growth Funded by Debt
+TVSMOTOR,Consumer Discretionary,0.5,Moderate,2.56,Asset Light,2.2,-40.98,True,False,Growth Funded by Debt

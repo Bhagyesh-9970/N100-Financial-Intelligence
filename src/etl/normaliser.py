@@ -114,7 +114,7 @@ class DataNormalizer:
 
         column = column.strip().lower()
 
-        column = column.replace("%", "")
+        column = column.replace("%", "pct")
 
         column = column.replace("&", "and")
 

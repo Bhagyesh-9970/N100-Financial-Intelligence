@@ -5,6 +5,8 @@ Sprint 1 - Day 5
 
 import unittest
 
+import pandas as pd
+
 from src.etl.excel_loader import ExcelLoader
 
 
@@ -121,6 +123,20 @@ class TestExcelLoader(unittest.TestCase):
                     " ",
                     column
                 )
+
+    def test_loader_handles_temporary_excel_file(self):
+        import tempfile
+        from pathlib import Path
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            path = Path(tmpdir) / "sample.xlsx"
+            pd.DataFrame({"company_id": ["TCS"], "year": [2024], "sales": [100]}).to_excel(path, index=False)
+
+            loader = ExcelLoader(raw_data_path=tmpdir)
+            df = loader.load_file(path)
+
+            self.assertFalse(df.empty)
+            self.assertIn("company_id", df.columns)
 
 
 # =============================================================

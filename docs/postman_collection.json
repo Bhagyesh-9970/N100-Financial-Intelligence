@@ -1,0 +1,22 @@
+{
+  "info": {
+    "name": "N100 Financial Intelligence API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "base_url", "value": "http://127.0.0.1:8000/api/v1"},
+    {"key": "ticker", "value": "TCS"},
+    {"key": "sector", "value": "Financials"},
+    {"key": "group_name", "value": "Financials"}
+  ],
+  "item": [
+    {"name": "Health", "request": {"method": "GET", "url": "{{base_url}}/health"}},
+    {"name": "Companies", "request": {"method": "GET", "url": "{{base_url}}/companies"}},
+    {"name": "Company Profile", "request": {"method": "GET", "url": "{{base_url}}/companies/{{ticker}}"}},
+    {"name": "Screener", "request": {"method": "GET", "url": "{{base_url}}/screener"}},
+    {"name": "Sectors", "request": {"method": "GET", "url": "{{base_url}}/sectors"}},
+    {"name": "Sector Companies", "request": {"method": "GET", "url": "{{base_url}}/sectors/{{sector}}/companies"}},
+    {"name": "Peers", "request": {"method": "GET", "url": "{{base_url}}/peers/{{group_name}}"}},
+    {"name": "Portfolio Stats", "request": {"method": "GET", "url": "{{base_url}}/portfolio/stats"}}
+  ]
+}

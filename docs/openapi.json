@@ -1,0 +1,29 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "N100 Financial Intelligence API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check"
+      }
+    },
+    "/companies": {
+      "get": {
+        "summary": "List companies"
+      }
+    },
+    "/screener": {
+      "get": {
+        "summary": "List screener results"
+      }
+    },
+    "/portfolio/clusters": {
+      "get": {
+        "summary": "Generate portfolio clusters"
+      }
+    }
+  }
+}

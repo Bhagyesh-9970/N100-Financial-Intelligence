@@ -235,10 +235,7 @@ class FinancialRatios:
         if borrowings == 0:
             return 0
 
-        equity = (
-            (equity_capital or 0)
-            + (reserves or 0)
-        )
+        equity = (equity_capital or 0)
 
         if equity <= 0:
             return None

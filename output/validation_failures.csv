@@ -1,13 +1,4 @@
 rule,severity,table,company,year,message
-DQ-01,CRITICAL,companies,Adani Enterprises Ltd,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,Adani Total Gas Ltd,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,Dr Reddys Laboratories Ltd,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,"Indian Oil Corporation
-",,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,Samvardhana Motherson International Ltd,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,Oil & Natural Gas Corpn Ltd,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,State Bank of India,,Duplicate Primary Key: company_id
-DQ-01,CRITICAL,companies,Sun Pharmaceuticals Industries Ltd,,Duplicate Primary Key: company_id
 DQ-02,CRITICAL,profitandloss,Unknown,Mar 2013,"Duplicate (company_id, year)"
 DQ-02,CRITICAL,profitandloss,Unknown,Mar 2014,"Duplicate (company_id, year)"
 DQ-02,CRITICAL,profitandloss,Unknown,Mar 2015,"Duplicate (company_id, year)"
